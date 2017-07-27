@@ -1,0 +1,23 @@
+# Blender MTL File: 'clipboard_internal.blend'
+# Material Count: 2
+
+newmtl board
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.178582 0.069200 0.032732
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd D:\\3D Assets\\Texture\\Paper\\cardboard2.jpg
+
+newmtl metal_shiny
+Ns 76.470588
+Ka 0.472080 0.471598 0.500000
+Kd 0.378191 0.378191 0.378191
+Ks 1.485002 1.482488 1.630716
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 5
