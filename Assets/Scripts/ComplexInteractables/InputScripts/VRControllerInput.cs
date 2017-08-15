@@ -93,16 +93,21 @@ public class VRControllerInput : MonoBehaviour
 					//If a tracked button is pressed
 					EVRButtonId button = buttonsTracked[b];
 					if (device.GetPressDown(button))
-					{ 
-						//Send button press through to interactable script
-						interactable.ButtonPressDown(button, this);
+					{
+						//If we haven't already sent the button press message to this interactable
+						//Safeguard against objects that have multiple colliders for one interactable script
+						if (!pressDownObjects.ContainsKey(button) || !pressDownObjects[button].Contains(interactable))
+						{
+							//Send button press through to interactable script
+							interactable.ButtonPressDown(button, this);
 
-						//Add interactable script to a dictionary flagging it to recieve notice
-						//when that same button is released
-						if (!pressDownObjects.ContainsKey(button))
-							pressDownObjects.Add(button, new List<VRInteractableObject>());
+							//Add interactable script to a dictionary flagging it to recieve notice
+							//when that same button is released
+							if (!pressDownObjects.ContainsKey(button))
+								pressDownObjects.Add(button, new List<VRInteractableObject>());
 
-						pressDownObjects[button].Add(interactable);
+							pressDownObjects[button].Add(interactable);
+						}
 					}
 				}
 			}
